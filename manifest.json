@@ -5,7 +5,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.udemy.com/course"
+                "https://www.udemy.com/course/curso-web/learn/lecture"
             ],
             "css": [
                 "style.css"
