@@ -1,11 +1,11 @@
 {
     "manifest_version": 2,
-    "name": "SpeedChanger",
+    "name": "HoursWatched",
     "version": "0.1",
     "content_scripts": [
         {
             "matches": [
-                "https://web.whatsapp.com/"
+                "https://www.udemy.com/course/curso-web/learn/lecture/9520126#overview"
             ],
             "css": [
                 "style.css"
