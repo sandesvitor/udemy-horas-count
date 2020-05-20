@@ -1,4 +1,4 @@
-console.log('HoursWatched 0.1 - status: active') 
+console.log('HoursWatched 1.0 - status: active') 
 
 if (window.location.hostname == "www.udemy.com") {
     
@@ -7,7 +7,7 @@ if (window.location.hostname == "www.udemy.com") {
         const header = document.querySelector('.header--course-dashboard-header--A4x0v')    
         
         if(header){
-            console.log(header)
+            
             clearInterval(interval)
             
             window.location.hash = '#content'
