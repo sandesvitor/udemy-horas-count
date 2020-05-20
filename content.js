@@ -8,41 +8,68 @@ const interval = setInterval(() => {
     if(header){
         console.log(header)
         clearInterval(interval)
-
-
-        const button = document.createElement("button")
-        button.innerHTML = "Contabilizar Horas"
-        button.classList.add("horas-btn")
-
-        const headerList = document.createElement("li")
-        headerList[0].appendChild(button)
         
+
+        const getWatchFactor = () => {
+
+            let a = document.querySelectorAll('.mr-space-xxs')
+            let numerador = 0
+            let denominador = 0
+            let arrayFator = []
+            let len = 0
         
-        button.addEventListener("click", (secoes) => {
-            
-               
-                let minutos = 0;
-                let horas = 0;
-            
-                for (let i=0; i < secoes; i++) {
-                    
-                    let dom = document.querySelectorAll('.ml-space-xxs')[i].innerText.split('');
-            
-                    if (dom.includes('h')) {
-                        horas = horas + parseFloat(dom.slice(0,1));
-                        minutos = minutos + parseFloat(dom.slice(3, dom.length).join(''));
-                    } else {
-                        minutos = minutos + parseFloat(dom.join(''))
-                    }
+            for (i=0; i < a.length; i++) {
+                arrayFator = a[i].innerText.split('/')
+                len = arrayFator.length
+        
+                numerador += parseFloat(arrayFator[0])
+                denominador += parseFloat(arrayFator[len-1])
+        
+            }
+        
+            let factor = numerador/denominador
+        
+            return factor
+        
+        }        
+
+        const getTempoTotal = () => {
+
+            let minutos = 0
+            let horas = 0
+            let a = document.querySelectorAll('.ml-space-xxs');
+        
+            for (let i = 0; i < a.length - 1; i++) {
+        
+                let dom = a[i].innerText.split('')
+        
+                if (dom.includes('h')) {
+                    horas += parseFloat(dom.slice(0,1))
+                    minutos += parseFloat(dom.slice(3, dom.length - 1).join(''))
+                } else {
+                    minutos = minutos + parseFloat(dom.join(''))
                 }
-            
-                return horas*60 + minutos
-            
-
-
-        })
+            }
         
-        header.appendChild(headerList)
+            let horasTotais = (horas*60 + minutos)/60 
+            return horasTotais
+        }
+        
+        let horasAssistidas = (getWatchFactor() * getTempoTotal()).toFixed(2) 
+          
+
+        let dom = document.querySelector('.header--course-dashboard-header--A4x0v')
+
+        let a = document.createElement('h3')
+        a.innerHTML = 
+        "Horas assistidas:"
+        dom.appendChild(a)
+        
+        let b = document.createElement('h4')
+        b.innerHTML = horasAssistidas
+        dom.appendChild(b) 
+        
+       
 
     }
 }, 1000)
