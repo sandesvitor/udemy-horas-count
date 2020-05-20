@@ -1,8 +1,9 @@
-// Extensão para somar horas assistidas em cursos Udemy!
+console.log('Extensão Rodando') 
+
+/*
+function addExtension() {
 
     const header = document.querySelectorAll('.header--course-dashboard-header--A4x0v')
-
-    
 
     const getWatchFactor = () => {
         let a = document.querySelectorAll('.mr-space-xxs')
@@ -59,4 +60,8 @@
     b.innerHTML = horasAssistidas
 
 
-    header.appendChild(b)     
+    header.appendChild(b)
+}     
+
+window.addEventListener('load', addExtension())
+*/
