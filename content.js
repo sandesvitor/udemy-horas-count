@@ -4,7 +4,7 @@
 
 
 const interval = setInterval(() => {
-    const header = document.querySelectorAll('.nav-slide.dashboard--dashboard-tabs--3ovIi.nav.nav-tabs')
+    const header = document.querySelectorAll('.header--course-dashboard-header--A4x0v')
     if(header){
         console.log(header)
         clearInterval(interval)
@@ -56,9 +56,6 @@ const interval = setInterval(() => {
         }
         
         let horasAssistidas = (getWatchFactor() * getTempoTotal()).toFixed(2) 
-          
-
-        let dom = document.querySelector('.header--course-dashboard-header--A4x0v')
 
         let a = document.createElement('h3')
         a.innerHTML = 
@@ -67,9 +64,8 @@ const interval = setInterval(() => {
         
         let b = document.createElement('h4')
         b.innerHTML = horasAssistidas
-        dom.appendChild(b) 
-        
-       
 
+
+        header.appendChild(b)     
     }
 }, 1000)
