@@ -1,5 +1,5 @@
 # udemy-horas-count
-v 1.0
+v 1.0.2
 
 Chrome extension used to inform user the amount of hours and minutes of any Udemy course he/she is undertaking.
 

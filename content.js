@@ -55,40 +55,41 @@ if (window.location.hostname == "www.udemy.com") {
                 return horasTotais
             }
             
-
-            let horasAssistidas = (getWatchFactor() * getTempoTotal()).toFixed(2) 
-
-            let a = document.createElement('h3')
-            a.innerHTML = "Horas assistidas:"
-            header.appendChild(a)
-            
-            let b = document.createElement('h4')
-            let hrs = parseInt(horasAssistidas)
-            let min = parseInt((horasAssistidas - hrs) * 60)
-            b.innerHTML = hrs + ' hrs' + ' ' + min + ' min'
-
-            header.appendChild(b)  
-            
             
 
+            document.querySelector('.progress--progress-container--RxDGm.popper--click-target--caIsH').addEventListener("click", () => {
+   
+                if (!document.querySelector('.popover--popover--click--3nXVQ')){
+                     window.location.hash = "#content"
+                }
+            
+                const box_interval = setTimeout( ()=> {
+                    
+                    let box = document.querySelector('.popover--popover--click--3nXVQ')
+            
+                    if (box) {
+                        
+                        clearInterval(box_interval)
 
-            let last_path = ""
-            setInterval(function() {
-                let path = window.location.pathname
-                
-                const contentSidebar = document.querySelector('.app--sidebar-column--2t0E8')
-
-                if (last_path != path && path.length != 1) {
-
-                    if (window.location.hash == "#content" || contentSidebar){
-                        let horasAssistidas = (getWatchFactor() * getTempoTotal()).toFixed(2) 
+                        let horasAssistidas = (getWatchFactor() * getTempoTotal()).toFixed(2)
                         let hrs = parseInt(horasAssistidas)
                         let min = parseInt((horasAssistidas - hrs) * 60)
-                        document.querySelector('.header--course-dashboard-header--A4x0v h4').innerHTML = hrs + ' hrs' + ' ' + min + ' min'
-                    }                    
+            
 
-                }
-            }, 250)
+                        let div_header = document.createElement('div')                        
+                        let indicative_header = document.createElement('h3')
+                        indicative_header.innerHTML = "Horas Assistidas:"
+                        let hrs_header = document.createElement('h4')
+                        hrs_header.innerHTML = hrs + ' hrs' + ' ' + min + ' min'
+                        div_header.appendChild(indicative_header)
+                        div_header.appendChild(hrs_header)            
+                        div_header.classList.add('extension-div-seu-progresso-insert-hours-watched')
+                        
+                        box.appendChild(div_header)
+                    }      
+                }, 5)  
+            })
+
 
         }
     }, 1000)
