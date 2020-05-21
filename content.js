@@ -76,11 +76,15 @@ if (window.location.hostname == "www.udemy.com") {
                 let path = window.location.pathname
 
                 if (last_path != path && path.length != 1) {
+
                     let horasAssistidas = (getWatchFactor() * getTempoTotal()).toFixed(2) 
 
-                    let hrs = parseInt(horasAssistidas)
-                    let min = parseInt((horasAssistidas - hrs) * 60)
-                    document.querySelector('.header--course-dashboard-header--A4x0v h4').innerHTML = hrs + ' hrs' + ' ' + min + ' min'
+                    if (horasAssistidas !== NaN){
+                        let hrs = parseInt(horasAssistidas)
+                        let min = parseInt((horasAssistidas - hrs) * 60)
+                        document.querySelector('.header--course-dashboard-header--A4x0v h4').innerHTML = hrs + ' hrs' + ' ' + min + ' min'
+                    }
+
                 }
             }, 250)
         }
