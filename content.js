@@ -67,26 +67,29 @@ if (window.location.hostname == "www.udemy.com") {
             let min = parseInt((horasAssistidas - hrs) * 60)
             b.innerHTML = hrs + ' hrs' + ' ' + min + ' min'
 
-
             header.appendChild(b)  
             
-            let last_path = ""
+            
 
+
+            let last_path = ""
             setInterval(function() {
                 let path = window.location.pathname
+                
+                const contentSidebar = document.querySelector('.app--sidebar-column--2t0E8')
 
                 if (last_path != path && path.length != 1) {
 
-                    let horasAssistidas = (getWatchFactor() * getTempoTotal()).toFixed(2) 
-
-                    if (horasAssistidas !== NaN){
+                    if (window.location.hash == "#content" || contentSidebar){
+                        let horasAssistidas = (getWatchFactor() * getTempoTotal()).toFixed(2) 
                         let hrs = parseInt(horasAssistidas)
                         let min = parseInt((horasAssistidas - hrs) * 60)
                         document.querySelector('.header--course-dashboard-header--A4x0v h4').innerHTML = hrs + ' hrs' + ' ' + min + ' min'
-                    }
+                    }                    
 
                 }
             }, 250)
+
         }
     }, 1000)
 
