@@ -1,4 +1,4 @@
-console.log('HoursWatched 1.0.2 - status: active') 
+console.log('HoursWatched 1.1.0 - status: active') 
 
 if (window.location.hostname == "www.udemy.com") {
     
