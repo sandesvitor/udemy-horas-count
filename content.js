@@ -4,7 +4,8 @@ if (window.location.hostname == "www.udemy.com") {
     
     
     const interval = setInterval(() => {
-        const header = document.querySelector('.header--course-dashboard-header--A4x0v')    
+        const header = document.querySelector('.header--course-dashboard-header--A4x0v')
+            
         
         if(header){
             
@@ -16,18 +17,18 @@ if (window.location.hostname == "www.udemy.com") {
             const openSections = () => {        
                 const contentsDiv = document.querySelectorAll('.section--section-heading--2k6aW')      
                 const lessonsFraction = document.querySelectorAll('.mr-space-xxs')
-                const selectionArrowUp = document.querySelectorAll('.section--section-chevron--tJ4mD.udi.udi-angle-up')
+                const selectionAriaExtended = document.querySelectorAll('.section--section--BukKG')
                 let numerador = 0
                 let arrayFraction = []
             
             
-                for (i=0; i < lessonsFraction.length; i++) {
+                for (let i = 0; i < lessonsFraction.length; i++) {
             
                     arrayFraction = lessonsFraction[i].innerText.split('/')
-                    numerador = parseFloat(arrayFraction[0])                        
+                    numerador = parseInt(arrayFraction[0])                        
             
             
-                    if (!selectionArrowUp[i] && numerador !== 0){
+                    if (selectionAriaExtended[i].ariaExpanded == "true" && numerador !== 0){
                        contentsDiv[i].click()                                                                 
                     }
                 }
@@ -53,7 +54,7 @@ if (window.location.hostname == "www.udemy.com") {
                 let sectionMinutes = 0
         
         
-                for (i=0; i < lessons.length; i++) {
+                for (let i = 0; i < lessons.length; i++) {
                     horas = 0
                     minutos = 0
                     sectionMinutes = 0
@@ -109,10 +110,9 @@ if (window.location.hostname == "www.udemy.com") {
                     window.location.hash = "#content"
                 }
             
-                setTimeout( ()=> {
-                    
-                    let box = document.querySelector('.popover--popover--click--3nXVQ')
+                setTimeout( ()=> {                   
             
+                    let box = document.querySelector('.popover--popover--click--3nXVQ')
                     if (box) {
                         
                         openSections()
